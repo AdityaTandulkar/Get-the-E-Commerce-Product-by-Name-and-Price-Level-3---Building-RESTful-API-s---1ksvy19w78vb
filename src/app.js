@@ -16,21 +16,20 @@ app.get("/api/v1/products/:name/:price", (req, res)=>{
 
     const filtered = products.find((item) => item.name === name && item.price == price);
 
-    if(filtered){
+    if (filtered) {
         res.status(200).json({
-            status : "success",
-            message : "Product fetched successfully",
-            data : {
-                filtered
-            }
-        })
-    }
-    else{
+          status: "success",
+          message: "Product fetched successfully",
+          data: {
+            filtered,
+          },
+        });
+    }else{
         res.status(404).json({
-            status : "failed",
-            message : "Product not found!"
-        })
+          status: "failed",
+          message: "Product not found!",
+        });
     }
-})
+});
 
 module.exports = app;
